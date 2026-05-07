@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School of AI and Emerging Technologies</title>
+  <style>
+    /* Basic reset for a clean, beginner-friendly starting point */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #153b66;
+      background: linear-gradient(180deg, #f4f9ff 0%, #ffffff 100%);
+    }
+
+    /* Reusable container for consistent spacing */
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0b5cad, #2c84d8);
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .school-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    h1, h2 {
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 1.4rem;
+      box-shadow: 0 8px 20px rgba(11, 92, 173, 0.12);
+      border: 1px solid #e5eff9;
+    }
+
+    .home-banner {
+      width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+      display: block;
+      box-shadow: 0 10px 25px rgba(11, 92, 173, 0.2);
+    }
+
+    .btn {
+      border: none;
+      background: linear-gradient(135deg, #0b5cad, #2c84d8);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(11, 92, 173, 0.25);
+    }
+
+    .welcome-output {
+      margin-top: 0.8rem;
+      font-weight: bold;
+      color: #0b5cad;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .course-card h3 {
+      margin-bottom: 0.5rem;
+      color: #0b5cad;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid #c6d9ef;
+      border-radius: 8px;
+      padding: 0.65rem;
+      font: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .error {
+      color: #c0392b;
+      font-size: 0.9rem;
+      min-height: 1.2rem;
+    }
+
+    footer {
+      background-color: #e9f2fc;
+      text-align: center;
+      padding: 1rem;
+      color: #23588e;
+      margin-top: 2rem;
+    }
+
+    /* Responsive layout for mobile screens */
+    @media (max-width: 800px) {
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-wrap {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header section with school name and navigation -->
+  <header>
+    <div class="container header-wrap">
+      <p class="school-name">School of AI and Emerging Technologies</p>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Home section with welcome content and banner image -->
+    <section id="home">
+      <div class="container card">
+        <h1>Welcome to Our School</h1>
+        <p>
+          We help students build future-ready skills in Artificial Intelligence, data, and modern technology.
+        </p>
+        <img
+          class="home-banner"
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80"
+          alt="Students learning with laptops in a modern classroom"
+        />
+        <button class="btn" id="welcomeBtn" type="button">Click for a Welcome Message</button>
+        <p class="welcome-output" id="welcomeOutput" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- About section describing the school -->
+    <section id="about">
+      <div class="container card">
+        <h2>About Us</h2>
+        <p>
+          The School of AI and Emerging Technologies is focused on practical, hands-on learning. Our mission is to
+          prepare learners for tomorrow’s careers through quality teaching, guided projects, and industry-aligned
+          curriculum.
+        </p>
+      </div>
+    </section>
+
+    <!-- Courses section showing at least 3 courses -->
+    <section id="courses">
+      <div class="container">
+        <h2>Our Courses</h2>
+        <div class="course-grid">
+          <article class="card course-card">
+            <h3>Introduction to Artificial Intelligence</h3>
+            <p>Learn AI basics, machine learning concepts, and real-world applications.</p>
+          </article>
+          <article class="card course-card">
+            <h3>Web Development Fundamentals</h3>
+            <p>Build responsive websites using HTML, CSS, and JavaScript.</p>
+          </article>
+          <article class="card course-card">
+            <h3>Data Science Essentials</h3>
+            <p>Understand data analysis, visualization, and practical problem solving.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section with a simple form -->
+    <section id="contact">
+      <div class="container card">
+        <h2>Contact Us</h2>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Enter your email" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message"></textarea>
+          </div>
+          <p class="error" id="formError" aria-live="polite"></p>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 School of AI and Emerging Technologies</p>
+  </footer>
+
+  <script>
+    // Interactive feature: display welcome text when the button is clicked.
+    const welcomeBtn = document.getElementById('welcomeBtn');
+    const welcomeOutput = document.getElementById('welcomeOutput');
+
+    welcomeBtn.addEventListener('click', () => {
+      welcomeOutput.textContent = 'Welcome to our School';
+    });
+
+    // Contact form validation and success alert.
+    const contactForm = document.getElementById('contactForm');
+    const formError = document.getElementById('formError');
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Simple regex for beginner-friendly email validation.
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !message) {
+        formError.textContent = 'Please fill in all fields.';
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        formError.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      formError.textContent = '';
+      alert('Form submitted successfully!');
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
